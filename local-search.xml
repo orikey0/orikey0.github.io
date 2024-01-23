@@ -8,7 +8,7 @@
     <link href="/2024/01/23/hexo%E7%94%A8%E6%B3%95/"/>
     <url>/2024/01/23/hexo%E7%94%A8%E6%B3%95/</url>
     
-    <content type="html"><![CDATA[<h2 id="hexo工具使用指南"><a href="#hexo工具使用指南" class="headerlink" title="hexo工具使用指南"></a>hexo工具使用指南</h2><ul><li><p>本地启动</p><ul><li>hexo s</li></ul></li><li><p>创建一个新的文档</p><ul><li>hexo new “layout” “hexo用法”</li></ul></li><li><p>生成静态文件</p><ul><li>hexo g</li></ul></li><li><p>部署到github</p><ul><li>hexo d</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="hexo工具使用指南"><a href="#hexo工具使用指南" class="headerlink" title="hexo工具使用指南"></a>hexo工具使用指南</h2><ul><li>本地启动<ul><li>hexo s</li></ul></li><li>创建一个新的文档<ul><li>hexo new “layout” “hexo用法”</li></ul></li><li>生成静态文件<ul><li>hexo g</li></ul></li><li>部署到github<ul><li>hexo d</li></ul></li></ul>]]></content>
     
     
     
