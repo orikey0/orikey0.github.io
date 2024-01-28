@@ -67,9 +67,15 @@
     <link href="/2024/01/27/git%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
     <url>/2024/01/27/git%E5%B7%A5%E4%BD%9C%E6%B5%81/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h2 id="了解git"><a href="#了解git" class="headerlink" title="了解git"></a>了解git</h2><blockquote><p><strong>Git</strong> (<a href="https://en.wikipedia.org/wiki/Help:IPA/English">&#x2F;ɡɪt&#x2F;</a>)[<a href="https://en.wikipedia.org/wiki/Git#cite_note-:0-9">8]</a> is a <a href="https://en.wikipedia.org/wiki/Distributed_version_control">distributed version control</a> system[<a href="https://en.wikipedia.org/wiki/Git#cite_note-FOOTNOTEChaconStraub201429%E2%80%9331-10">9]</a> that tracks changes in any set of <a href="https://en.wikipedia.org/wiki/Computer_file">computer files</a>, usually used for coordinating work among programmers who are collaboratively developing <a href="https://en.wikipedia.org/wiki/Source_code">source code</a> during <a href="https://en.wikipedia.org/wiki/Software_development">software development</a>. Its goals include speed, <a href="https://en.wikipedia.org/wiki/Data_integrity">data integrity</a>, and support for <a href="https://en.wikipedia.org/wiki/Distributed_computing">distributed</a>, non-linear workflows (thousands of parallel <a href="https://en.wikipedia.org/wiki/Branching_(version_control)">branches</a> running on different computers)</p><p>– git wiki</p></blockquote><p>简单来说git是一个分布式的版本管理工具，它能够追踪每一个文件的变更记录。可能这样说过于抽象了，我们来列举一个更加具体的例子。现在我们有一个文件A，小明在这个里面进行了改动在A文件里面写下了: “我叫小明”，但是有另一个人小张，把我叫小明给改成了 我不叫小明，如果我们使用word或者wps进行的编辑，那么我们就无法知道到底是谁在什么时候改动了这个文件，以及这个文件的历史记录是什么，而git就是能够帮助我们知道某一个文件它的操作记录具体是谁改动的，改动之前和改动之后的区别到底是什么。相信说到这里大家如果是小白的话可能还是对git一头雾水，这里给大家指路到[廖雪峰git教程][<a href="https://www.liaoxuefeng.com/wiki/896043488029600/896067008724000]%EF%BC%8C%E5%9B%A0%E4%B8%BA%E6%9C%AC%E6%96%87%E4%B8%BB%E8%A6%81%E7%9A%84%E4%BE%A7%E9%87%8D%E7%82%B9%E8%BF%98%E6%98%AFgit%E5%9C%A8%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E5%BD%93%E4%B8%AD%E5%88%B0%E5%BA%95%E5%85%B7%E4%BD%93%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%AF%B9%E4%BA%8E%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9%E4%B8%8D%E5%86%8D%E9%87%8D%E5%A4%8D%E9%80%A0%E8%BD%AE%E5%AD%90">https://www.liaoxuefeng.com/wiki/896043488029600/896067008724000]，因为本文主要的侧重点还是git在生产环境当中到底具体如何使用，对于基础内容不再重复造轮子</a></p><h2 id="cook"><a href="#cook" class="headerlink" title="cook"></a>cook</h2><p>经过前面的学习大家已经对git有了一些简单的理解，那么从这里开始我们主要聊一下实际工作中的git的工作流到底是什么样子的。</p><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>相信大家都知道所有的git文件系统都有一个主干分支 master&#x2F;main 我们在进行生产环境代码上线肯定是只能够上master分支的，别人进行系统开发也肯定是完全依赖于master&#x2F;main分支进行开发，因此我们如果说想要开发自己的代码一般来说会有这样的规范</p><ul><li><p>功能分支：</p><ul><li>feature&#x2F;_xxxx</li><li>feat_xxxxx</li></ul></li><li><p>线上bug修改</p><ul><li>hotfix&#x2F;xxxxx</li><li>hotfix_xxxxx</li></ul></li></ul><p>这两个分支基本上能涵盖掉90%以上个人开发场景，但是有一定的情况下我们可能还会有dev分支和release分支，这两个一般是小团队进行小步迭代代码的时候比较场景，在实际业务开发当中出现的情况比较少，基本上都是新建feat或者hotfix</p><blockquote><p>ok私房菜：在实际进行业务开发的时候，我们可能还会遇到两类分支分别叫做bus分支和env分支，这两类分支通常都不是个人进行建立的，那么这里来个大家介绍一下bus分支，比如我们部门的微服务有多个业务方进行更改的时候，我们不可避免的可能会导致我们部门的微服务多次迭代并且发布，这会导致我们的服务本身并不稳定，并且还可能会出现A和B部门同时修改了一块代码 互为冲突的情况，那么为了解决这种场景，git当中有一种方式是我们部门约定只能每周四进行代码上线，所有更改我们微服务的部门把分支提交到一个共同的bus分支上面去，这样如果有冲突的话能够提前发现，并且也有效的降低了服务发布的次数，当然这样也会有一定的问题，就是一旦需要回滚会直接把所有人的提交全部回滚掉，因此使用bus分支的情况下，我们还有一个额外约定，那就是不允许代码回滚，env分支则是指 测试环境，灰度环境 线上环境 的分支，那么线上的话肯定就是master分支而其余的环境我们则要求代码要合并到具体的测试环境分支上在进行发布</p></blockquote>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>ok的私房菜</tag>
+      
+    </tags>
     
   </entry>
   
@@ -100,6 +106,8 @@
     <tags>
       
       <tag>日语</tag>
+      
+      <tag>语言学习</tag>
       
     </tags>
     
@@ -144,9 +152,17 @@
     <link href="/2024/01/23/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95/"/>
     <url>/2024/01/23/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h2 id="时态"><a href="#时态" class="headerlink" title="时态"></a>时态</h2><p>一般现在时和一般现在进行时的区别</p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>语言学习</tag>
+      
+      <tag>英语</tag>
+      
+    </tags>
     
   </entry>
   
