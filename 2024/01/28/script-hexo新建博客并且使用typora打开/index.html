@@ -16,22 +16,23 @@
   <meta name="author" content="Howard Lee">
   <meta name="keywords" content="">
   
-    <meta name="description" content="hexo工具使用指南 本地启动 hexo s   创建一个新的文档 hexo new “layout” “hexo用法”   生成静态文件 hexo g   部署到github hexo d">
+    <meta name="description" content="环境 macos 14.2.1 (23C71)   core type mac M1   other previous condition has installed typora edit the post_path in scripts    脚本作用使用hexo创建的脚本放在_post地下对于我这种命令行梭哈选手来说太智障了，所以就有了这个脚本，这个脚本的作用是帮助你创建新博客的同时使用ty">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo用法">
-<meta property="og:url" content="http://orikey0.github.io/2024/01/23/hexo%E7%94%A8%E6%B3%95/index.html">
+<meta property="og:title" content="script-hexo新建博客并且使用typora打开">
+<meta property="og:url" content="http://orikey0.github.io/2024/01/28/script-hexo%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8typora%E6%89%93%E5%BC%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="hexo工具使用指南 本地启动 hexo s   创建一个新的文档 hexo new “layout” “hexo用法”   生成静态文件 hexo g   部署到github hexo d">
+<meta property="og:description" content="环境 macos 14.2.1 (23C71)   core type mac M1   other previous condition has installed typora edit the post_path in scripts    脚本作用使用hexo创建的脚本放在_post地下对于我这种命令行梭哈选手来说太智障了，所以就有了这个脚本，这个脚本的作用是帮助你创建新博客的同时使用ty">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-23T12:51:21.000Z">
-<meta property="article:modified_time" content="2024-01-23T13:25:06.221Z">
+<meta property="article:published_time" content="2024-01-28T03:40:34.000Z">
+<meta property="article:modified_time" content="2024-01-28T03:47:29.117Z">
 <meta property="article:author" content="Howard Lee">
-<meta property="article:tag" content="tools">
+<meta property="article:tag" content="自定义脚本">
+<meta property="article:tag" content="ok的私房菜">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>hexo用法 - Hexo</title>
+  <title>script-hexo新建博客并且使用typora打开 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="hexo用法"></span>
+            <span id="subtitle" data-typed-text="script-hexo新建博客并且使用typora打开"></span>
           
         </div>
 
@@ -208,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-23 20:51" pubdate>
-          2024年1月23日 晚上
+        <time datetime="2024-01-28 11:40" pubdate>
+          2024年1月28日 中午
         </time>
       </span>
     
@@ -220,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          33 字
+          209 字
         
       </span>
     
@@ -231,7 +232,7 @@
         
         
         
-          1 分钟
+          2 分钟
         
       </span>
     
@@ -268,29 +269,30 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">hexo用法</h1>
+            <h1 id="seo-header">script-hexo新建博客并且使用typora打开</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="hexo工具使用指南"><a href="#hexo工具使用指南" class="headerlink" title="hexo工具使用指南"></a>hexo工具使用指南</h2><ul>
-<li>本地启动<ul>
-<li>hexo s</li>
+                <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>macos<ul>
+<li>14.2.1 (23C71)</li>
 </ul>
 </li>
-<li>创建一个新的文档<ul>
-<li>hexo new “layout” “hexo用法”</li>
+<li>core type<ul>
+<li>mac M1</li>
 </ul>
 </li>
-<li>生成静态文件<ul>
-<li>hexo g</li>
-</ul>
-</li>
-<li>部署到github<ul>
-<li>hexo d</li>
+<li>other previous condition<ul>
+<li>has installed typora</li>
+<li>edit the post_path in scripts</li>
 </ul>
 </li>
 </ul>
+<h2 id="脚本作用"><a href="#脚本作用" class="headerlink" title="脚本作用"></a>脚本作用</h2><p>使用hexo创建的脚本放在_post地下对于我这种命令行梭哈选手来说太智障了，所以就有了这个脚本，这个脚本的作用是帮助你创建新博客的同时使用typora打开这个博客并且进行编辑，this is an awesome work flow!</p>
+<h2 id="脚本定义"><a href="#脚本定义" class="headerlink" title="脚本定义"></a>脚本定义</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs shell"><br>if [ -z &quot;$1&quot; ]; then<br>    echo &quot;Usage: $0 &lt;post_title&gt;&quot;<br>    exit 1<br>fi<br><br>post_title=&quot;$1&quot;<br><br>post_path=&quot;/Users/xxx/IdeaProjects/blog/source/_posts/$&#123;post_title&#125;.md&quot;<br><br>if [ -e &quot;$post_path&quot; ]; then<br>    echo &quot;File &#x27;$post_path&#x27; already exists. Skipping Step 1.&quot;<br><br>    typo_command=&quot;open -a typora $post_path&quot;<br>    typo_output=$(eval &quot;$typo_command&quot;)<br><br>    echo &quot;Step 2 Output:&quot;<br>    echo &quot;$typo_output&quot;<br><br>    exit 0<br>fi<br><br>hexo_new_output=$(hexo new &quot;$post_title&quot;)<br><br>post_path=$(echo &quot;$hexo_new_output&quot; | grep &quot;Created:&quot; | awk &#x27;&#123;print $3&#125;&#x27;)<br>echo &quot;$post_path&quot;<br><br>typo_command=&quot;open -a typora $post_path&quot;<br>typo_output=$(eval &quot;$typo_command&quot;)<br><br>echo &quot;Step 1 Output:&quot;<br>echo &quot;$hexo_new_output&quot;<br><br>echo &quot;Step 2 Output:&quot;<br>echo &quot;$typo_output&quot;<br><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><p>.&#x2F;script_name new_blog</p>
 
                 
               </div>
@@ -303,7 +305,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/tools/" class="print-no-link">#tools</a>
+        <a href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC/" class="print-no-link">#自定义脚本</a>
+      
+        <a href="/tags/ok%E7%9A%84%E7%A7%81%E6%88%BF%E8%8F%9C/" class="print-no-link">#ok的私房菜</a>
       
     </div>
   
@@ -315,8 +319,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>hexo用法</div>
-      <div>http://orikey0.github.io/2024/01/23/hexo用法/</div>
+      <div>script-hexo新建博客并且使用typora打开</div>
+      <div>http://orikey0.github.io/2024/01/28/script-hexo新建博客并且使用typora打开/</div>
     </div>
     <div class="license-meta">
       
@@ -328,7 +332,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年1月23日</div>
+          <div>2024年1月28日</div>
         </div>
       
       
@@ -360,18 +364,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/01/24/ipython/" title="ipython">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ipython</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/01/23/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95/" title="英语语法">
-                        <span class="hidden-mobile">英语语法</span>
+                      <a href="/2024/01/27/git%E5%B7%A5%E4%BD%9C%E6%B5%81/" title="git工作流">
+                        <span class="hidden-mobile">git工作流</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

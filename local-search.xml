@@ -4,6 +4,85 @@
   
   
   <entry>
+    <title>script-hexo新建博客并且使用typora打开</title>
+    <link href="/2024/01/28/script-hexo%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8typora%E6%89%93%E5%BC%80/"/>
+    <url>/2024/01/28/script-hexo%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8typora%E6%89%93%E5%BC%80/</url>
+    
+    <content type="html"><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul><li>macos<ul><li>14.2.1 (23C71)</li></ul></li><li>core type<ul><li>mac M1</li></ul></li><li>other previous condition<ul><li>has installed typora</li><li>edit the post_path in scripts</li></ul></li></ul><h2 id="脚本作用"><a href="#脚本作用" class="headerlink" title="脚本作用"></a>脚本作用</h2><p>使用hexo创建的脚本放在_post地下对于我这种命令行梭哈选手来说太智障了，所以就有了这个脚本，这个脚本的作用是帮助你创建新博客的同时使用typora打开这个博客并且进行编辑，this is an awesome work flow!</p><h2 id="脚本定义"><a href="#脚本定义" class="headerlink" title="脚本定义"></a>脚本定义</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs shell"><br>if [ -z &quot;$1&quot; ]; then<br>    echo &quot;Usage: $0 &lt;post_title&gt;&quot;<br>    exit 1<br>fi<br><br>post_title=&quot;$1&quot;<br><br>post_path=&quot;/Users/xxx/IdeaProjects/blog/source/_posts/$&#123;post_title&#125;.md&quot;<br><br>if [ -e &quot;$post_path&quot; ]; then<br>    echo &quot;File &#x27;$post_path&#x27; already exists. Skipping Step 1.&quot;<br><br>    typo_command=&quot;open -a typora $post_path&quot;<br>    typo_output=$(eval &quot;$typo_command&quot;)<br><br>    echo &quot;Step 2 Output:&quot;<br>    echo &quot;$typo_output&quot;<br><br>    exit 0<br>fi<br><br>hexo_new_output=$(hexo new &quot;$post_title&quot;)<br><br>post_path=$(echo &quot;$hexo_new_output&quot; | grep &quot;Created:&quot; | awk &#x27;&#123;print $3&#125;&#x27;)<br>echo &quot;$post_path&quot;<br><br>typo_command=&quot;open -a typora $post_path&quot;<br>typo_output=$(eval &quot;$typo_command&quot;)<br><br>echo &quot;Step 1 Output:&quot;<br>echo &quot;$hexo_new_output&quot;<br><br>echo &quot;Step 2 Output:&quot;<br>echo &quot;$typo_output&quot;<br><br><br></code></pre></td></tr></table></figure><h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><p>.&#x2F;script_name new_blog</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>自定义脚本</tag>
+      
+      <tag>ok的私房菜</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>git工作流</title>
+    <link href="/2024/01/27/git%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
+    <url>/2024/01/27/git%E5%B7%A5%E4%BD%9C%E6%B5%81/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>广告投放</title>
+    <link href="/2024/01/27/%E5%B9%BF%E5%91%8A%E6%8A%95%E6%94%BE/"/>
+    <url>/2024/01/27/%E5%B9%BF%E5%91%8A%E6%8A%95%E6%94%BE/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>日语学习</title>
+    <link href="/2024/01/27/%E6%97%A5%E8%AF%AD%E5%AD%A6%E4%B9%A0-%E6%95%B0%E5%AD%97%E5%92%8C%E9%A2%9C%E8%89%B2/"/>
+    <url>/2024/01/27/%E6%97%A5%E8%AF%AD%E5%AD%A6%E4%B9%A0-%E6%95%B0%E5%AD%97%E5%92%8C%E9%A2%9C%E8%89%B2/</url>
+    
+    <content type="html"><![CDATA[<h2 id="number-and-color"><a href="#number-and-color" class="headerlink" title="number and color"></a>number and color</h2><table><thead><tr><th>word</th><th>pronuncation</th><th>mean</th></tr></thead><tbody><tr><td>い</td><td>i</td><td></td></tr><tr><td>いち</td><td>i chi</td><td></td></tr><tr><td>に</td><td>n</td><td></td></tr><tr><td>さ</td><td>sa</td><td></td></tr><tr><td>よ</td><td>yo</td><td></td></tr><tr><td>あ</td><td>a</td><td></td></tr><tr><td>な</td><td>na</td><td></td></tr><tr><td>く</td><td>ku</td><td></td></tr><tr><td>お</td><td>o</td><td></td></tr><tr><td>は</td><td>ha</td><td></td></tr><tr><td>あく</td><td>a ku</td><td></td></tr></tbody></table>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>日语</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>ipython</title>
+    <link href="/2024/01/24/ipython/"/>
+    <url>/2024/01/24/ipython/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>hexo用法</title>
     <link href="/2024/01/23/hexo%E7%94%A8%E6%B3%95/"/>
     <url>/2024/01/23/hexo%E7%94%A8%E6%B3%95/</url>
