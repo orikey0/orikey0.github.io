@@ -4,6 +4,52 @@
   
   
   <entry>
+    <title>个人博客收藏</title>
+    <link href="/2024/01/30/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%94%B6%E8%97%8F/"/>
+    <url>/2024/01/30/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%94%B6%E8%97%8F/</url>
+    
+    <content type="html"><![CDATA[<ul><li><p>网易云RTA投放 <a href="https://mp.weixin.qq.com/s/kW5_lootLn8y1apAWsiqLQ">https://mp.weixin.qq.com/s/kW5_lootLn8y1apAWsiqLQ</a></p></li><li><p>JVM问题cookbook <a href="https://mp.weixin.qq.com/s/zshcVuQreAB8YHwjBL0EmA">https://mp.weixin.qq.com/s/zshcVuQreAB8YHwjBL0EmA</a></p></li><li><p>RTB <a href="https://www.woshipm.com/marketing/5926942.html">https://www.woshipm.com/marketing/5926942.html</a></p></li><li><p>RTA <a href="https://m.saikr.com/a/559962">https://m.saikr.com/a/559962</a></p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>orikey亲选</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>广告投放常见概念</title>
+    <link href="/2024/01/30/%E5%B9%BF%E5%91%8A%E6%8A%95%E6%94%BE%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/"/>
+    <url>/2024/01/30/%E5%B9%BF%E5%91%8A%E6%8A%95%E6%94%BE%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>业务领域知识</category>
+      
+      <category>doing</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>orikey的私房菜</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>【问题排查】hexo-git无法正常推送</title>
     <link href="/2024/01/28/%E3%80%90%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%E3%80%91hexo-git%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%8E%A8%E9%80%81/"/>
     <url>/2024/01/28/%E3%80%90%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%E3%80%91hexo-git%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%8E%A8%E9%80%81/</url>
@@ -105,12 +151,14 @@
     <link href="/2024/01/27/%E5%B9%BF%E5%91%8A%E6%8A%95%E6%94%BE/"/>
     <url>/2024/01/27/%E5%B9%BF%E5%91%8A%E6%8A%95%E6%94%BE/</url>
     
-    <content type="html"><![CDATA[<h2 id="了解广告投放"><a href="#了解广告投放" class="headerlink" title="了解广告投放"></a>了解广告投放</h2><p>广告投放主要是用户增长部门负责的一个职责</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><h2 id="了解广告投放"><a href="#了解广告投放" class="headerlink" title="了解广告投放"></a>了解广告投放</h2><ol><li>广告投放主要是用户增长部门负责的一个职能，主要目的是向三方广告，通过人群包，自建模型等方式，为广告主召回目标人群，这里尤其注意，本文所说的广告投放并不包括品牌广告，主要是信息流，SEM，商店等 程序化投放</li><li>广告投放召回目标人群的方式主要用两种，也就是RTA和RTB，其中RTA为广告主自建模型实时竞价，RTB是我们将模型上传给DSP平台，由广告投放平台自主决定在什么样的场景下展现广告体系</li></ol><h2 id="了解RTA和RTB"><a href="#了解RTA和RTB" class="headerlink" title="了解RTA和RTB"></a>了解RTA和RTB</h2><p>这里直接给大家放两个帖子，我个人认为写的非常好，有兴趣深入了解的同学</p><p>[RTA平台介绍][<a href="https://m.saikr.com/a/559962]">https://m.saikr.com/a/559962]</a></p><p>[RTB平台介绍][<a href="https://www.woshipm.com/marketing/5926942.html]">https://www.woshipm.com/marketing/5926942.html]</a></p>]]></content>
     
     
     <categories>
       
       <category>业务领域知识</category>
+      
+      <category>doing</category>
       
     </categories>
     
