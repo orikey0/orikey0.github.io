@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>screen</title>
+    <link href="/2024/01/31/screen/"/>
+    <url>/2024/01/31/screen/</url>
+    
+    <content type="html"><![CDATA[<h2 id="关于screen"><a href="#关于screen" class="headerlink" title="关于screen"></a>关于screen</h2><p>常用命令：</p><table><thead><tr><th>代码命令</th><th>作用</th><th>其他</th></tr></thead><tbody><tr><td>screen -S xxx</td><td>新建一个会话</td><td></td></tr><tr><td>screen -D xxx</td><td>将某个会话现在访问的人踢掉</td><td></td></tr><tr><td>screen -r xxx</td><td>进入某个已经存在的会话</td><td></td></tr><tr><td>screen -ls xxx</td><td>查看当前所有的会话</td><td></td></tr><tr><td>screen -S xxx -X quit</td><td>删除某个会话</td><td></td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>工具使用</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>工具使用</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>个人博客收藏</title>
     <link href="/2024/01/30/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%94%B6%E8%97%8F/"/>
     <url>/2024/01/30/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%94%B6%E8%97%8F/</url>
