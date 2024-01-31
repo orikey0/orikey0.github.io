@@ -199,9 +199,15 @@
     <link href="/2024/01/24/ipython/"/>
     <url>/2024/01/24/ipython/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h2 id="ipython更新"><a href="#ipython更新" class="headerlink" title="ipython更新"></a>ipython更新</h2><p>%load_ext autoreload<br>%autoreload 2</p><p><code>%autoreload</code>:  自动重载<code>%aimport</code>排除的模块之外的所有模块。 <code>%autoreload 0</code>: 禁用自动重载 <code>%autoreload 1</code>: 自动重载<code>%aimport</code>指定的模块。 <code>%autoreload 2</code>: 自动重载<code>%aimport</code>排除的模块之外的所有模块。 <code>%aimport</code>: 列出需要自动重载的模块和不需要重载的模块。 <code>%aimport foo</code>: 重载模块foo并将它标记为需要自动重载。 <code>%aimport -foo</code>: 将模块foo标记为不需要自动重载。</p><h2 id="自定义预设路径"><a href="#自定义预设路径" class="headerlink" title="自定义预设路径"></a>自定义预设路径</h2><p>.ipython&#x2F;profile_default&#x2F;startup&#x2F;startup.py</p><p>在</p><p>if ‘<strong>IPYTHON</strong>‘ in globals():<br>    ipython.magic(‘load_ext autoreload’)<br>    ipython.magic(‘autoreload 2’)</p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>工具使用</tag>
+      
+    </tags>
     
   </entry>
   
