@@ -4,6 +4,80 @@
   
   
   <entry>
+    <title>ongest-substring-without-repeating-characters</title>
+    <link href="/2024/02/09/ongest-substring-without-repeating-characters/"/>
+    <url>/2024/02/09/ongest-substring-without-repeating-characters/</url>
+    
+    <content type="html"><![CDATA[<p>you are given a string ‘s’ ,and return the max length and no repeat character substring of it</p><ul><li>key info<ul><li>simulation</li><li>go</li><li>sliding window</li></ul></li></ul><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">lengthOfLongestSubstring</span><span class="hljs-params">(s <span class="hljs-type">string</span>)</span></span> <span class="hljs-type">int</span> &#123;<br>helpMap := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">rune</span>]<span class="hljs-type">int</span>)<br>firstPoint := <span class="hljs-number">0</span><br>secondPoint := <span class="hljs-number">0</span><br>runes := []<span class="hljs-type">rune</span>(s)<br>maxLength := <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> firstPoint &lt; <span class="hljs-built_in">len</span>(runes) &#123;<br>firstRune := runes[firstPoint]<br>value, ok := helpMap[firstRune]<br><span class="hljs-keyword">if</span> ok &#123;<br>helpMap[firstRune] = value + <span class="hljs-number">1</span><br><span class="hljs-keyword">if</span> helpMap[firstRune] &gt; <span class="hljs-number">1</span> &#123;<br><span class="hljs-keyword">if</span> firstPoint-secondPoint &gt; maxLength &#123;<br>maxLength = firstPoint - secondPoint<br>&#125;<br><span class="hljs-keyword">for</span> secondPoint &lt;= firstPoint &#123;<br>secondRune := runes[secondPoint]<br>_, ok := helpMap[secondRune]<br><span class="hljs-keyword">if</span> ok &#123;<br>helpMap[secondRune] = helpMap[secondRune] - <span class="hljs-number">1</span><br>&#125;<br>secondPoint = secondPoint + <span class="hljs-number">1</span><br><span class="hljs-keyword">if</span> helpMap[firstRune] &lt;= <span class="hljs-number">1</span> &#123;<br><span class="hljs-keyword">break</span><br>&#125;<br>&#125;<br>&#125;<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>helpMap[firstRune] = <span class="hljs-number">1</span><br>&#125;<br>firstPoint = firstPoint + <span class="hljs-number">1</span><br>&#125;<br><span class="hljs-keyword">if</span> firstPoint-secondPoint &gt; maxLength &#123;<br>maxLength = firstPoint - secondPoint<br>&#125;<br><span class="hljs-keyword">return</span> maxLength<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>go</tag>
+      
+      <tag>simulation</tag>
+      
+      <tag>sliding window</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>add-two-numbers</title>
+    <link href="/2024/02/09/add-two-numbers/"/>
+    <url>/2024/02/09/add-two-numbers/</url>
+    
+    <content type="html"><![CDATA[<h2 id="add-two-numbers"><a href="#add-two-numbers" class="headerlink" title="add-two-numbers"></a>add-two-numbers</h2><p>give you two linked list that non-empty and the digits is reversed store by them. you need to add every node of them and returen the sum as a linked list</p><ul><li>key info<ul><li>linkedList</li><li>go</li><li>simulation</li></ul></li></ul><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * type ListNode struct &#123;</span><br><span class="hljs-comment"> *     Val int</span><br><span class="hljs-comment"> *     Next *ListNode</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">addTwoNumbers</span><span class="hljs-params">(l1 *ListNode, l2 *ListNode)</span></span> *ListNode &#123;<br>    headNode := &amp;ListNode&#123;&#125;<br>    curNode := headNode<br><br>    cur_flag := <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">for</span> l1!=<span class="hljs-literal">nil</span> || l2!=<span class="hljs-literal">nil</span> &#123;<br>        l1Val := <span class="hljs-number">0</span><br>        l2Val := <span class="hljs-number">0</span><br>        <span class="hljs-keyword">if</span> l1!=<span class="hljs-literal">nil</span> &#123;<br>            l1Val = l1.Val<br>            l1 = l1.Next<br>        &#125;<br>        <span class="hljs-keyword">if</span> l2!=<span class="hljs-literal">nil</span> &#123;<br>            l2Val = l2.Val<br>            l2 = l2.Next<br>        &#125;<br>        tempRes := l1Val + cur_flag + l2Val<br>        <span class="hljs-keyword">if</span> tempRes &gt;=<span class="hljs-number">10</span> &#123;<br>            tempRes -=<span class="hljs-number">10</span><br>            cur_flag = <span class="hljs-number">1</span><br>        &#125;<span class="hljs-keyword">else</span> &#123;<br>            cur_flag = <span class="hljs-number">0</span><br>        &#125;<br>        temNode := &amp;ListNode&#123;&#125;<br>        temNode.Val = tempRes<br>        curNode.Next = temNode<br>        curNode = curNode.Next<br>    &#125;<br>    <span class="hljs-keyword">if</span> cur_flag==<span class="hljs-number">1</span> &#123;<br>        tempNode := &amp;ListNode&#123;&#125;<br>        tempNode.Val = <span class="hljs-number">1</span><br>        curNode.Next = tempNode<br>    &#125;<br>    <span class="hljs-keyword">return</span> headNode.Next<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>英语单词-随手记</title>
+    <link href="/2024/02/09/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D-%E9%9A%8F%E6%89%8B%E8%AE%B0/"/>
+    <url>/2024/02/09/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D-%E9%9A%8F%E6%89%8B%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>语言学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>口琴谱-美丽之物</title>
+    <link href="/2024/02/09/%E5%8F%A3%E7%90%B4%E8%B0%B1-%E7%BE%8E%E4%B8%BD%E4%B9%8B%E7%89%A9/"/>
+    <url>/2024/02/09/%E5%8F%A3%E7%90%B4%E8%B0%B1-%E7%BE%8E%E4%B8%BD%E4%B9%8B%E7%89%A9/</url>
+    
+    <content type="html"><![CDATA[<p>来源clock</p><p><img src="https://raw.githubusercontent.com/OriKey/picrep/main/img/image-20240209125510484.png" alt="image-20240209125510484"></p><h2 id="4-7-1-2-1-76-4-323-6-4"><a href="#4-7-1-2-1-76-4-323-6-4" class="headerlink" title="#4 7 [#1 2#1] 76#4 323 6 #4"></a>#4 7 [#1 2#1] 76#4 323 6 #4</h2><h2 id="7-1-2-1-76-4-432-322"><a href="#7-1-2-1-76-4-432-322" class="headerlink" title="7[#1 2#1]76#4 #432 322"></a>7[#1 2#1]76#4 #432 322</h2><h2 id="7-1-2-1-76-4-432-36-4"><a href="#7-1-2-1-76-4-432-36-4" class="headerlink" title="7[#1 2#1]76#4 #432 36#4"></a>7[#1 2#1]76#4 #432 36#4</h2><h2 id="432-36-4-432-322"><a href="#432-36-4-432-322" class="headerlink" title="#432 36#4 #432 322"></a>#432 36#4 #432 322</h2><h2 id="伴奏口琴旋律：4321-6-545-1-6"><a href="#伴奏口琴旋律：4321-6-545-1-6" class="headerlink" title="伴奏口琴旋律：4321(6) (545)1(6)"></a>伴奏口琴旋律：4321(6) (545)1(6)</h2><h2 id="23-43-21-6-54-544"><a href="#23-43-21-6-54-544" class="headerlink" title="23 43 21 (6 54 544)"></a>23 43 21 (6 54 544)</h2><h2 id="23-43-21-6-545-1-6-6545-1-6-654-544"><a href="#23-43-21-6-545-1-6-6545-1-6-654-544" class="headerlink" title="23 43 21 (6 545)1(6 6545)1(6 654 544)"></a>23 43 21 (6 545)1(6 6545)1(6 654 544)</h2><h2 id="6-66675-43-33-45-432-7-12-4323"><a href="#6-66675-43-33-45-432-7-12-4323" class="headerlink" title="6 66675#43 33 #45#432 (7)#12 #4323"></a>6 66675#43 33 #45#432 (7)#12 #4323</h2><h2 id="23-456-66-75-43-3-46322-7-12-4323"><a href="#23-456-66-75-43-3-46322-7-12-4323" class="headerlink" title="23#456 66 75#43 3#46322 (7)#12 #4323"></a>23#456 66 75#43 3#46322 (7)#12 #4323</h2><h2 id="6-6675-43-3-45-432-7-12-4323"><a href="#6-6675-43-3-45-432-7-12-4323" class="headerlink" title="6 6675#43 3 #45#432 (7)#12 #4323"></a>6 6675#43 3 #45#432 (7)#12 #4323</h2><h2 id="23-456-6675-43-3-4-2-1-6-4-23-4-5-433"><a href="#23-456-6675-43-3-4-2-1-6-4-23-4-5-433" class="headerlink" title="23#456 6675#43 3#4[2#1]6#4 23#4 5#433"></a>23#456 6675#43 3#4[2#1]6#4 23#4 5#433</h2><h2 id="23456-56-11-55-654-45432-21"><a href="#23456-56-11-55-654-45432-21" class="headerlink" title="23456 56[11]55 654 45432 21"></a>23456 56[11]55 654 45432 21</h2><h2 id="7776-7-12-1-1-1-7-1-76"><a href="#7776-7-12-1-1-1-7-1-76" class="headerlink" title="7776 7[#12] [#1#1#1]7[#1]76"></a>7776 7[#12] [#1#1#1]7[#1]76</h2><h2 id="7-123-456-4-6-7-1"><a href="#7-123-456-4-6-7-1" class="headerlink" title="(7)#123#456 #4 #6 7 [#1]"></a>(7)#123#456 #4 #6 7 [#1]</h2><h2 id="2-1-76-4-3236-4-47-1-2-1-76-4-432-322"><a href="#2-1-76-4-3236-4-47-1-2-1-76-4-432-322" class="headerlink" title="[2#1]76#4 3236#4 #47[#1 2#1]76#4 #432 322"></a>[2#1]76#4 3236#4 #47[#1 2#1]76#4 #432 322</h2><h2 id="7-1-2-1-76-4-432-36-4-432-36-4-432-322"><a href="#7-1-2-1-76-4-432-36-4-432-36-4-432-322" class="headerlink" title="7[#1 2#1]76#4 #432 36#4 #432 36#4 #432 322"></a>7[#1 2#1]76#4 #432 36#4 #432 36#4 #432 322</h2><h2 id="然后以上重复一遍"><a href="#然后以上重复一遍" class="headerlink" title="然后以上重复一遍"></a>然后以上重复一遍</h2><h2 id="23456-6654-3456-66-6654454"><a href="#23456-6654-3456-66-6654454" class="headerlink" title="23456 #6654 3456 #66#6654454"></a>23456 #6654 3456 #66#6654454</h2><h2 id="234566-665-4564-211-665-64"><a href="#234566-665-4564-211-665-64" class="headerlink" title="234566#665 4564 [211]#665 64"></a>234566#665 4564 [211]#665 64</h2><h2 id="5-4-3-23-4-7-5-4-5-5"><a href="#5-4-3-23-4-7-5-4-5-5" class="headerlink" title="#5#4 3#23#4 7#5 #4#5#5"></a>#5#4 3#23#4 7#5 #4#5#5</h2><h2 id="13-4-5-5-5-4-5-13-4-5-5-56-5-43-4-47"><a href="#13-4-5-5-5-4-5-13-4-5-5-56-5-43-4-47" class="headerlink" title="#13#4 #5#5#5#4#5 #13#4 #5#5#56 #5#43#4 #47"></a>#13#4 #5#5#5#4#5 #13#4 #5#5#56 #5#43#4 #47</h2><h2 id="1-2-4-4-4-5676-5-43-76"><a href="#1-2-4-4-4-5676-5-43-76" class="headerlink" title="#1#2#4#4#4 #5676#5#43 76"></a>#1#2#4#4#4 #5676#5#43 76</h2><h2 id="67-1-667-1-1-77"><a href="#67-1-667-1-1-77" class="headerlink" title="67[#1] 667 [#1 #1]77"></a>67[#1] 667 [#1 #1]77</h2><h2 id="4-5-6-567-3-1-1-7-6-5-433"><a href="#4-5-6-567-3-1-1-7-6-5-433" class="headerlink" title="#4#5 6#567 3[#1#1]7 6#5#433"></a>#4#5 6#567 3[#1#1]7 6#5#433</h2><h2 id="4-5-6-567-3-1-1-1-7-6-5-43-4"><a href="#4-5-6-567-3-1-1-1-7-6-5-43-4" class="headerlink" title="#4#5 6#567 3[#1#1#1]7 6#5#43#4"></a>#4#5 6#567 3[#1#1#1]7 6#5#43#4</h2><h2 id="4-5-6-567-3-1-1-7-6-5-433-1"><a href="#4-5-6-567-3-1-1-7-6-5-433-1" class="headerlink" title="#4#5 6#567 3[#1#1]7 6#5#433"></a>#4#5 6#567 3[#1#1]7 6#5#433</h2><h2 id="4-5-6-567-3-1-1-1-7-6-5-43-4-1"><a href="#4-5-6-567-3-1-1-1-7-6-5-43-4-1" class="headerlink" title="#4#5 6#567 3[#1#1#1]7 6#5#43#4"></a>#4#5 6#567 3[#1#1#1]7 6#5#43#4</h2><h2 id="47-1-2-1-76-4-3236-4-47-1-2-1-76-4-432-322"><a href="#47-1-2-1-76-4-3236-4-47-1-2-1-76-4-432-322" class="headerlink" title="#47[#1 2#1]76#4 3236#4 #47[#1 2#1]76#4 #432 322"></a>#47[#1 2#1]76#4 3236#4 #47[#1 2#1]76#4 #432 322</h2><h2 id="7-1-2-1-76-4-432-36-4-432-36-4-432-322-1"><a href="#7-1-2-1-76-4-432-36-4-432-36-4-432-322-1" class="headerlink" title="7[#1 2#1]76#4 #432 36#4 #432 36#4 #432 322"></a>7[#1 2#1]76#4 #432 36#4 #432 36#4 #432 322</h2>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>mac工具-sublime</title>
     <link href="/2024/02/03/mac%E5%B7%A5%E5%85%B7-sublime/"/>
     <url>/2024/02/03/mac%E5%B7%A5%E5%85%B7-sublime/</url>
@@ -55,6 +129,12 @@
     <content type="html"><![CDATA[]]></content>
     
     
+    <categories>
+      
+      <category>技术方案</category>
+      
+    </categories>
+    
     
     <tags>
       
@@ -90,9 +170,21 @@
     <link href="/2024/02/02/%E5%8F%AA%E7%8B%BC%E5%85%A8boss%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/"/>
     <url>/2024/02/02/%E5%8F%AA%E7%8B%BC%E5%85%A8boss%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<blockquote><p>超喜欢打铁</p></blockquote><p>1、大将</p><p>2、赤鬼</p><p>3、第二个大将</p><p>4、鬼刑部</p><p>5、火牛</p><p>6、七本枪</p><p>7、门前大将</p>]]></content>
     
     
+    <categories>
+      
+      <category>魂类游戏</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>games</tag>
+      
+    </tags>
     
   </entry>
   
@@ -129,7 +221,7 @@
     <link href="/2024/02/02/mac%E5%B7%A5%E5%85%B7-pbcopy-pbpaste/"/>
     <url>/2024/02/02/mac%E5%B7%A5%E5%85%B7-pbcopy-pbpaste/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
     
     
     
@@ -402,7 +494,7 @@
     <link href="/2024/01/27/%E5%B9%BF%E5%91%8A%E6%8A%95%E6%94%BE/"/>
     <url>/2024/01/27/%E5%B9%BF%E5%91%8A%E6%8A%95%E6%94%BE/</url>
     
-    <content type="html"><![CDATA[<h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><h2 id="了解广告投放"><a href="#了解广告投放" class="headerlink" title="了解广告投放"></a>了解广告投放</h2><ol><li>广告投放主要是用户增长部门负责的一个职能，主要目的是向三方广告，通过人群包，自建模型等方式，为广告主召回目标人群，这里尤其注意，本文所说的广告投放并不包括品牌广告，主要是信息流，SEM，商店等 程序化投放</li><li>广告投放召回目标人群的方式主要用两种，也就是RTA和RTB，其中RTA为广告主自建模型实时竞价，RTB是我们将模型上传给DSP平台，由广告投放平台自主决定在什么样的场景下展现广告体系</li></ol><h2 id="了解RTA和RTB"><a href="#了解RTA和RTB" class="headerlink" title="了解RTA和RTB"></a>了解RTA和RTB</h2><p>这里直接给大家放两个帖子，我个人认为写的非常好，有兴趣深入了解的同学</p><p>[RTA平台介绍][<a href="https://m.saikr.com/a/559962]">https://m.saikr.com/a/559962]</a></p><p>[RTB平台介绍][<a href="https://www.woshipm.com/marketing/5926942.html]">https://www.woshipm.com/marketing/5926942.html]</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><h2 id="了解广告投放"><a href="#了解广告投放" class="headerlink" title="了解广告投放"></a>了解广告投放</h2><ol><li>广告投放主要是用户增长部门负责的一个职能，主要目的是向三方广告，通过人群包，自建模型等方式，为广告主召回目标人群，这里尤其注意，本文所说的广告投放并不包括品牌广告，主要是信息流，SEM，商店等 程序化投放</li><li>广告投放召回目标人群的方式主要用两种，也就是RTA和RTB，其中RTA为广告主自建模型实时竞价，RTB是我们将模型上传给DSP平台，由广告投放平台自主决定在什么样的场景下展现广告体系</li></ol><h2 id="了解RTA和RTB"><a href="#了解RTA和RTB" class="headerlink" title="了解RTA和RTB"></a>了解RTA和RTB</h2><p>这里直接给大家放两个帖子，我个人认为写的非常好，有兴趣深入了解的同学</p><p>[RTA平台介绍][<a href="https://m.saikr.com/a/559962]">https://m.saikr.com/a/559962]</a></p><p>[RTB平台介绍][<a href="https://www.woshipm.com/marketing/5926942.html]">https://www.woshipm.com/marketing/5926942.html]</a></p><h2 id="归因方式"><a href="#归因方式" class="headerlink" title="归因方式"></a>归因方式</h2>]]></content>
     
     
     <categories>
@@ -510,19 +602,6 @@
     <url>/2023/12/11/%E4%B8%AA%E4%BA%BA%E5%B0%8F%E5%B7%A5%E5%85%B7/</url>
     
     <content type="html"><![CDATA[]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2023/12/07/hello-world/"/>
-    <url>/2023/12/07/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     
     
