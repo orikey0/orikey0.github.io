@@ -16,24 +16,26 @@
   <meta name="author" content="Howard Lee">
   <meta name="keywords" content="">
   
-    <meta name="description" content="add-two-numbersgive you two linked list that non-empty and the digits is reversed store by them. you need to add every node of them and returen the sum as a linked list  key info linkedList go simulat">
+    <meta name="description" content="aboutyou are given a string s, and you need found the longest palindromic substring about it solutionthis is a medium complex simulation algo，and it can be optmized by Dynamic programming this is simu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="add-two-numbers">
-<meta property="og:url" content="http://orikey0.github.io/2024/02/09/add-two-numbers/index.html">
+<meta property="og:title" content="longest-palindromic-substring">
+<meta property="og:url" content="http://orikey0.github.io/2024/02/10/longest-palindromic-substring/index.html">
 <meta property="og:site_name" content="orikey">
-<meta property="og:description" content="add-two-numbersgive you two linked list that non-empty and the digits is reversed store by them. you need to add every node of them and returen the sum as a linked list  key info linkedList go simulat">
+<meta property="og:description" content="aboutyou are given a string s, and you need found the longest palindromic substring about it solutionthis is a medium complex simulation algo，and it can be optmized by Dynamic programming this is simu">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-02-09T06:20:35.000Z">
-<meta property="article:modified_time" content="2024-02-09T06:24:21.771Z">
+<meta property="article:published_time" content="2024-02-10T06:43:20.000Z">
+<meta property="article:modified_time" content="2024-02-10T06:47:47.464Z">
 <meta property="article:author" content="Howard Lee">
 <meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="go">
+<meta property="article:tag" content="simulation">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>add-two-numbers - orikey</title>
+  <title>longest-palindromic-substring - orikey</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="add-two-numbers"></span>
+            <span id="subtitle" data-typed-text="longest-palindromic-substring"></span>
           
         </div>
 
@@ -222,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-02-09 14:20" pubdate>
-          2024年2月9日 下午
+        <time datetime="2024-02-10 14:43" pubdate>
+          2024年2月10日 下午
         </time>
       </span>
     
@@ -234,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          98 字
+          232 字
         
       </span>
     
@@ -245,7 +247,7 @@
         
         
         
-          1 分钟
+          2 分钟
         
       </span>
     
@@ -282,21 +284,15 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">add-two-numbers</h1>
+            <h1 id="seo-header">longest-palindromic-substring</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="add-two-numbers"><a href="#add-two-numbers" class="headerlink" title="add-two-numbers"></a>add-two-numbers</h2><p>give you two linked list that non-empty and the digits is reversed store by them. you need to add every node of them and returen the sum as a linked list</p>
-<ul>
-<li>key info<ul>
-<li>linkedList</li>
-<li>go</li>
-<li>simulation</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * type ListNode struct &#123;</span><br><span class="hljs-comment"> *     Val int</span><br><span class="hljs-comment"> *     Next *ListNode</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">addTwoNumbers</span><span class="hljs-params">(l1 *ListNode, l2 *ListNode)</span></span> *ListNode &#123;<br>    headNode := &amp;ListNode&#123;&#125;<br>    curNode := headNode<br><br>    cur_flag := <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">for</span> l1!=<span class="hljs-literal">nil</span> || l2!=<span class="hljs-literal">nil</span> &#123;<br>        l1Val := <span class="hljs-number">0</span><br>        l2Val := <span class="hljs-number">0</span><br>        <span class="hljs-keyword">if</span> l1!=<span class="hljs-literal">nil</span> &#123;<br>            l1Val = l1.Val<br>            l1 = l1.Next<br>        &#125;<br>        <span class="hljs-keyword">if</span> l2!=<span class="hljs-literal">nil</span> &#123;<br>            l2Val = l2.Val<br>            l2 = l2.Next<br>        &#125;<br>        tempRes := l1Val + cur_flag + l2Val<br>        <span class="hljs-keyword">if</span> tempRes &gt;=<span class="hljs-number">10</span> &#123;<br>            tempRes -=<span class="hljs-number">10</span><br>            cur_flag = <span class="hljs-number">1</span><br>        &#125;<span class="hljs-keyword">else</span> &#123;<br>            cur_flag = <span class="hljs-number">0</span><br>        &#125;<br>        temNode := &amp;ListNode&#123;&#125;<br>        temNode.Val = tempRes<br>        curNode.Next = temNode<br>        curNode = curNode.Next<br>    &#125;<br>    <span class="hljs-keyword">if</span> cur_flag==<span class="hljs-number">1</span> &#123;<br>        tempNode := &amp;ListNode&#123;&#125;<br>        tempNode.Val = <span class="hljs-number">1</span><br>        curNode.Next = tempNode<br>    &#125;<br>    <span class="hljs-keyword">return</span> headNode.Next<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="about"><a href="#about" class="headerlink" title="about"></a>about</h2><p>you are given a string s, and you need found the longest palindromic substring about it</p>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>this is a medium complex simulation algo，and it can be optmized by Dynamic programming</p>
+<p>this is simulation stage code, not dunamic programmming</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs go"><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">longestPalindrome</span><span class="hljs-params">(s <span class="hljs-type">string</span>)</span></span> <span class="hljs-type">string</span> &#123;<br>	<span class="hljs-comment">// 1、对每一点进行中央扩散 判断从该点延伸出去最大的回文川是多大</span><br>	res := <span class="hljs-string">&quot;&quot;</span><br>	runes := []<span class="hljs-type">rune</span>(s)<br>	<span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(runes) &lt;= <span class="hljs-number">1</span> &#123;<br>		<span class="hljs-keyword">return</span> s<br>	&#125;<br>	<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>(runes); i++ &#123;<br>		<span class="hljs-comment">// 考虑两种情况</span><br>		<span class="hljs-comment">// 1、奇数回文</span><br>		tempOddMaxString := getOddMaxString(runes, i)<br>		<span class="hljs-comment">// 2、偶数回文</span><br>		tempEvenMaxString := getEvenMaxString(runes, i)<br>		tempMaxString := tempEvenMaxString<br>		<span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(tempEvenMaxString) &lt; <span class="hljs-built_in">len</span>(tempOddMaxString) &#123;<br>			tempMaxString = tempOddMaxString<br>		&#125;<br>		<span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(tempMaxString) &gt; <span class="hljs-built_in">len</span>(res) &#123;<br>			res = tempMaxString<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> res<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">getEvenMaxString</span><span class="hljs-params">(runes []<span class="hljs-type">rune</span>, i <span class="hljs-type">int</span>)</span></span> <span class="hljs-type">string</span> &#123;<br>	left := i<br>	right := i + <span class="hljs-number">1</span><br>	<span class="hljs-keyword">for</span> left &gt;= <span class="hljs-number">0</span> &amp;&amp; right &lt;= <span class="hljs-built_in">len</span>(runes)<span class="hljs-number">-1</span> &#123;<br>		<span class="hljs-keyword">if</span> left &lt; <span class="hljs-number">0</span> || right &gt;= <span class="hljs-built_in">len</span>(runes) &#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-type">string</span>(runes[left:right])<br>		&#125;<br>		<span class="hljs-keyword">if</span> runes[left] != runes[right] &#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-type">string</span>(runes[left+<span class="hljs-number">1</span>:right])<br>		&#125;<br>		left = left - <span class="hljs-number">1</span><br>		right = right + <span class="hljs-number">1</span><br>	&#125;<br>	<span class="hljs-keyword">if</span> left &lt; <span class="hljs-number">0</span> || right &gt;= <span class="hljs-built_in">len</span>(runes) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-type">string</span>(runes[left+<span class="hljs-number">1</span> : right])<br>	&#125; <span class="hljs-keyword">else</span> &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-type">string</span>(runes[left : right+<span class="hljs-number">1</span>])<br>	&#125;<br><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">getOddMaxString</span><span class="hljs-params">(runes []<span class="hljs-type">rune</span>, i <span class="hljs-type">int</span>)</span></span> <span class="hljs-type">string</span> &#123;<br>	left, right := i, i<br>	<span class="hljs-keyword">for</span> left &gt;= <span class="hljs-number">0</span> &amp;&amp; right &lt;= <span class="hljs-built_in">len</span>(runes)<span class="hljs-number">-1</span> &#123;<br>		left = left - <span class="hljs-number">1</span><br>		right = right + <span class="hljs-number">1</span><br>		<span class="hljs-keyword">if</span> left &lt; <span class="hljs-number">0</span> || right &gt;= <span class="hljs-built_in">len</span>(runes) &#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-type">string</span>(runes[left+<span class="hljs-number">1</span> : right])<br>		&#125;<br>		<span class="hljs-keyword">if</span> runes[left] != runes[right] &#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-type">string</span>(runes[left+<span class="hljs-number">1</span> : right])<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-type">string</span>(runes[left : right+<span class="hljs-number">1</span>])<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -312,6 +308,10 @@
       
         <a href="/tags/leetcode/" class="print-no-link">#leetcode</a>
       
+        <a href="/tags/go/" class="print-no-link">#go</a>
+      
+        <a href="/tags/simulation/" class="print-no-link">#simulation</a>
+      
     </div>
   
 </div>
@@ -322,8 +322,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>add-two-numbers</div>
-      <div>http://orikey0.github.io/2024/02/09/add-two-numbers/</div>
+      <div>longest-palindromic-substring</div>
+      <div>http://orikey0.github.io/2024/02/10/longest-palindromic-substring/</div>
     </div>
     <div class="license-meta">
       
@@ -335,7 +335,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年2月9日</div>
+          <div>2024年2月10日</div>
         </div>
       
       
@@ -367,18 +367,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/02/09/longest-substring-without-repeating-characters/" title="longest-substring-without-repeating-characters">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">longest-substring-without-repeating-characters</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/02/09/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D-%E9%9A%8F%E6%89%8B%E8%AE%B0/" title="英语单词-随手记">
-                        <span class="hidden-mobile">英语单词-随手记</span>
+                      <a href="/2024/02/09/longest-substring-without-repeating-characters/" title="longest-substring-without-repeating-characters">
+                        <span class="hidden-mobile">longest-substring-without-repeating-characters</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
