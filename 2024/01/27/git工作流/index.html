@@ -24,7 +24,7 @@
 <meta property="og:description" content="了解git Git (&#x2F;ɡɪt&#x2F;)[8] is a distributed version control system[9] that tracks changes in any set of computer files, usually used for coordinating work among programmers who are collaboratively">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-27T14:20:40.000Z">
-<meta property="article:modified_time" content="2024-01-28T13:41:40.021Z">
+<meta property="article:modified_time" content="2024-02-20T03:03:11.453Z">
 <meta property="article:author" content="Howard Lee">
 <meta property="article:tag" content="orikey的私房菜">
 <meta name="twitter:card" content="summary_large_image">
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          974 字
+          998 字
         
       </span>
     
@@ -312,6 +312,12 @@
 <blockquote>
 <p>ok私房菜：在实际进行业务开发的时候，我们可能还会遇到两类分支分别叫做bus分支和env分支，这两类分支通常都不是个人进行建立的，那么这里来个大家介绍一下bus分支，比如我们部门的微服务有多个业务方进行更改的时候，我们不可避免的可能会导致我们部门的微服务多次迭代并且发布，这会导致我们的服务本身并不稳定，并且还可能会出现A和B部门同时修改了一块代码 互为冲突的情况，那么为了解决这种场景，git当中有一种方式是我们部门约定只能每周四进行代码上线，所有更改我们微服务的部门把分支提交到一个共同的bus分支上面去，这样如果有冲突的话能够提前发现，并且也有效的降低了服务发布的次数，当然这样也会有一定的问题，就是一旦需要回滚会直接把所有人的提交全部回滚掉，因此使用bus分支的情况下，我们还有一个额外约定，那就是不允许代码回滚，env分支则是指 测试环境，灰度环境 线上环境 的分支，那么线上的话肯定就是master分支而其余的环境我们则要求代码要合并到具体的测试环境分支上在进行发布</p>
 </blockquote>
+<h2 id="git的一些基操"><a href="#git的一些基操" class="headerlink" title="git的一些基操"></a>git的一些基操</h2><ul>
+<li>当前分支进行了一次错误的commit，回滚最近一次commit<ul>
+<li>git reset HEAD^</li>
+</ul>
+</li>
+</ul>
 
                 
               </div>
