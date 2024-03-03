@@ -24,7 +24,7 @@
 <meta property="og:description" content="网易云RTA投放 https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;kW5_lootLn8y1apAWsiqLQ  JVM问题cookbook https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;zshcVuQreAB8YHwjBL0EmA  RTB https:&#x2F;&#x2F;www.woshipm.com&#x2F;marketing&#x2F;5926942.html  RTA https:&#x2F;&#x2F;m.saikr.co">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-30T03:47:53.000Z">
-<meta property="article:modified_time" content="2024-01-30T03:57:48.860Z">
+<meta property="article:modified_time" content="2024-02-28T06:44:48.928Z">
 <meta property="article:author" content="Howard Lee">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -449,6 +449,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -664,6 +670,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
