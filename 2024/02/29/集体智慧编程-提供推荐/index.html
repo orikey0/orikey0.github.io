@@ -23,14 +23,16 @@
 <meta property="og:site_name" content="orikey">
 <meta property="og:description" content="约定： 笔者本人读书笔记的行文风格，比较喜欢使用QA，采用一问一答的方式来进行学习。学习知识也并不完全是线性的我会在讲解一些具体复杂的概念之前先提出or讲解若干个知识点，来帮助大家进行学习，所以就算是零基础 没有数理统计(线性代数、离散数学、概率论)等背景的同学也应该可以看懂，如果有问题,大家的Question放在评论区我觉得必要的内容会补充到学习问题前的知识点内容里面 基本代码运行环境是 ma">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/OriKey/picrep/main/img/%E6%88%AA%E5%B1%8F2024-03-03%2022.20.59.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/OriKey/picrep/main/img/image-20240304220931057.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/OriKey/picrep/main/img/%E6%88%AA%E5%B1%8F2024-03-04%2022.19.09.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/OriKey/picrep/main/img/image-20240304222952088.png">
 <meta property="article:published_time" content="2024-02-29T10:29:33.000Z">
-<meta property="article:modified_time" content="2024-03-04T03:12:38.201Z">
+<meta property="article:modified_time" content="2024-03-04T14:37:08.809Z">
 <meta property="article:author" content="Howard Lee">
 <meta property="article:tag" content="集体智慧编程">
 <meta property="article:tag" content="更新中">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/OriKey/picrep/main/img/%E6%88%AA%E5%B1%8F2024-03-03%2022.20.59.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/OriKey/picrep/main/img/image-20240304220931057.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -237,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          2.2k 字
         
       </span>
     
@@ -248,7 +250,7 @@
         
         
         
-          14 分钟
+          19 分钟
         
       </span>
     
@@ -326,7 +328,7 @@
 </li>
 <li><p>除此之外 还有一些工程性的模块</p>
 <ul>
-<li>收集<ul>
+<li>收集（冷启动）<ul>
 <li>提前采集用户信息，还有站内内容信心，为后续的候选集、过滤、排序服务</li>
 </ul>
 </li>
@@ -340,7 +342,9 @@
 </li>
 </ul>
 <p>一个最基本的架构如下图所示：</p>
-<img src="https://raw.githubusercontent.com/OriKey/picrep/main/img/%E6%88%AA%E5%B1%8F2024-03-03%2022.20.59.png" srcset="/img/loading.gif" lazyload style="zoom:30%" />
+<img src="https://raw.githubusercontent.com/OriKey/picrep/main/img/image-20240304220931057.png" srcset="/img/loading.gif" lazyload alt="image-20240304220931057" style="zoom:50%;" />
+
+
 
 <h2 id="Q2、如何计算候选集"><a href="#Q2、如何计算候选集" class="headerlink" title="Q2、如何计算候选集"></a>Q2、如何计算候选集</h2><blockquote>
 <p>这个问题的细节非常的复杂，我这里暂时不做详细解释</p>
@@ -389,18 +393,50 @@
 </ul>
 </li>
 </ul>
-<hr>
-<p>施工部分：</p>
-<h2 id="现代推荐系统"><a href="#现代推荐系统" class="headerlink" title="现代推荐系统"></a>现代推荐系统</h2><ul>
-<li>冷启动</li>
-<li>召回</li>
-<li>粗排</li>
-<li>精排</li>
+<h2 id="Q3、协同过滤的实际应用-（CF算法）"><a href="#Q3、协同过滤的实际应用-（CF算法）" class="headerlink" title="Q3、协同过滤的实际应用 （CF算法）"></a>Q3、协同过滤的实际应用 （CF算法）</h2><ul>
+<li><p>CF算法的核心是处理 user-item矩阵，举个简单的例子，你是A，我通过分析你的历史记录，发现有一个和你消费习惯很像的 B，我就把一些曝光给B,并且B购买了的商品推荐给你，这样做有几个好处：</p>
+<ol>
+<li>简单，使用范围广，只依赖历史数据。</li>
+<li>能得到长尾item</li>
+<li>往往比较worker，能有比较好的效果</li>
+</ol>
+</li>
+<li><p>同样也有一些坏处：</p>
+<ol>
+<li>初次启动需要大量的冷启动数据</li>
+<li>解释性不强</li>
+</ol>
+</li>
+<li><p>协同过滤常见的实现方式</p>
+<ul>
+<li>详细解释建议大家直接去看 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/76298058%E9%87%8C%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E9%87%8A%E8%BF%87%E4%BA%8E%E7%A1%AC%E6%A0%B8%EF%BC%8C%E5%A4%A7%E5%AE%B6%E4%BB%85%E4%BA%86%E8%A7%A3%E6%A6%82%E5%BF%B5%E5%B0%B1%E5%8F%AF%E4%BB%A5%EF%BC%8C%E6%AF%95%E7%AB%9Fpython%E9%83%BD%E5%B7%B2%E7%BB%8F%E5%86%99%E5%A5%BD%E4%BA%86%EF%BD%9E">https://zhuanlan.zhihu.com/p/76298058里面的数学解释过于硬核，大家仅了解概念就可以，毕竟python都已经写好了～</a></li>
 </ul>
-<h1 id="Z、其他"><a href="#Z、其他" class="headerlink" title="Z、其他"></a>Z、其他</h1></li>
+</li>
+<li><p>当我们拿到经过协同过滤的数据之后，我们就可以根据用户相似度权重以及他们对物品的偏好，预测当前用户没有偏好的未涉及物品，计算得到一个<strong>排序的物品列表作为推荐</strong></p>
+<ul>
+<li><p>这里有个延伸概念，就是<strong>如何计算用户的相似度</strong></p>
+<ul>
+<li>欧几里得距离：比如我们可以有一个用户叫做toby 他对物品A snakes 是4.5分，对物品B Durpree的评分是1分，那么我们就以此为坐标建立用户Toby、Lasalle 等对Snake和Durpree的偏好空间，然后计算距离就可以了 也就是 下面这个公式，这个原理是很好解释的。<br>$$<br>f（x）&#x3D; \sqrt{(x_1^2 - x_2^2)+(y_1^2-y_2^2)}<br>$$</li>
 </ul>
 </li>
 </ul>
+<img src="https://raw.githubusercontent.com/OriKey/picrep/main/img/%E6%88%AA%E5%B1%8F2024-03-04%2022.19.09.png" srcset="/img/loading.gif" lazyload alt="截屏2024-03-04 22.19.09" style="zoom:33%;" />
+
+<p>- </p>
+<ul>
+<li>皮尔逊相关系数<ul>
+<li>简单来说这个是断两组数据与某一直线拟合程度的一种度量，比如之前上一张图的横纵坐标是物品，而皮尔逊系数则是两个人对五个物品的评分组成了他们的横纵坐标，一般来说点越靠近这跟直线，那么这两个人的品味我们就可以近似的理解更相似，其实要想搞明白这个系数 我们需要首先去理解协方差相关的概念，这里还是直接引用高质量的文章来为大家详细介绍皮尔逊相关系数：<a target="_blank" rel="noopener" href="https://blog.csdn.net/huangfei711/article/details/78456165">https://blog.csdn.net/huangfei711/article/details/78456165</a></li>
+<li><img src="https://raw.githubusercontent.com/OriKey/picrep/main/img/image-20240304222952088.png" srcset="/img/loading.gif" lazyload alt="image-20240304222952088" style="zoom:33%;" /></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>​					</p>
 
                 
               </div>
