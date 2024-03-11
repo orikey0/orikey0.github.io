@@ -16,14 +16,17 @@
   <meta name="author" content="Howard Lee">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="C、发现群组Q1、什么叫做数据聚类 简单来说聚类(Clustering)是按照某个特定标准(如距离)把一个数据集分割成不同的类或簇，使得同一个簇内的数据对象的相似性尽可能大，同时不在同一个簇中的数据对象的差异性也尽可能地大。也即聚类后同一类的数据尽可能聚集到一起，不同类数据尽量分离。 想要了解后续章节内容需要先了解B-Q4的前置概念，计算数据之间的距离。 数据聚类最常用的一个场景 其实就是数据分类">
+<meta property="og:type" content="article">
 <meta property="og:title" content="集体智慧编程-03-发现群组">
 <meta property="og:url" content="http://orikey0.github.io/2024/03/04/%E9%9B%86%E4%BD%93%E6%99%BA%E6%85%A7%E7%BC%96%E7%A8%8B-03-%E5%8F%91%E7%8E%B0%E7%BE%A4%E7%BB%84/index.html">
 <meta property="og:site_name" content="orikey">
+<meta property="og:description" content="C、发现群组Q1、什么叫做数据聚类 简单来说聚类(Clustering)是按照某个特定标准(如距离)把一个数据集分割成不同的类或簇，使得同一个簇内的数据对象的相似性尽可能大，同时不在同一个簇中的数据对象的差异性也尽可能地大。也即聚类后同一类的数据尽可能聚集到一起，不同类数据尽量分离。 想要了解后续章节内容需要先了解B-Q4的前置概念，计算数据之间的距离。 数据聚类最常用的一个场景 其实就是数据分类">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-04T14:42:39.000Z">
-<meta property="article:modified_time" content="2024-03-04T14:42:39.740Z">
+<meta property="article:modified_time" content="2024-03-11T13:18:38.835Z">
 <meta property="article:author" content="Howard Lee">
+<meta property="article:tag" content="集体智慧编程">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -231,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          679 字
         
       </span>
     
@@ -242,7 +245,7 @@
         
         
         
-          1 分钟
+          6 分钟
         
       </span>
     
@@ -284,7 +287,31 @@
             
               <div class="markdown-body">
                 
-                
+                <h1 id="C、发现群组"><a href="#C、发现群组" class="headerlink" title="C、发现群组"></a>C、发现群组</h1><h2 id="Q1、什么叫做数据聚类"><a href="#Q1、什么叫做数据聚类" class="headerlink" title="Q1、什么叫做数据聚类"></a>Q1、什么叫做数据聚类</h2><ul>
+<li>简单来说<code>聚类(Clustering)</code>是按照某个特定标准(如距离)把一个数据集分割成不同的类或簇，使得<strong>同一个簇内的数据对象的相似性尽可能大，同时不在同一个簇中的数据对象的差异性也尽可能地大</strong>。也即聚类后同一类的数据尽可能聚集到一起，不同类数据尽量分离。</li>
+<li>想要了解后续章节内容需要先了解B-Q4的前置概念，计算数据之间的距离。</li>
+<li>数据聚类最常用的一个场景 其实就是数据分类。举个简单的例子，现在你有一个app，但是你流失了很多的用户，你现在需要想办法召回这批人，最简单的做法是你给所有人都发一封邮件或者短信，做到信息的触达，但是这样做不是很好，所以你可以想办法选择针对不同的人群发送不同的内容，比如对于学生发校招信息，对于工作的人发社招信息，那么带来的召回效果可能就有一个比较好的提升</li>
+</ul>
+<h2 id="Q2、聚类是不是就是分类"><a href="#Q2、聚类是不是就是分类" class="headerlink" title="Q2、聚类是不是就是分类"></a>Q2、聚类是不是就是分类</h2><ul>
+<li>并不是，聚类是无监督，而分类是有监督的</li>
+<li><code>聚类(Clustering)</code>：是指把相似的数据划分到一起，具体划分的时候并不关心这一类的标签，目标就是把相似的数据聚合到一起，聚类是一种<code>无监督学习(Unsupervised Learning)</code>方法。</li>
+<li><code>分类(Classification)</code>：是把不同的数据划分开，其过程是通过训练数据集获得一个分类器，再通过分类器去预测未知数据，分类是一种<code>监督学习(Supervised Learning)</code>方法。</li>
+</ul>
+<h2 id="Q3、聚类的一般过程"><a href="#Q3、聚类的一般过程" class="headerlink" title="Q3、聚类的一般过程"></a>Q3、聚类的一般过程</h2><ol>
+<li>数据准备：特征标准化和降维</li>
+<li>特征选择：从最初的特征中选择最有效的特征，并将其存储在向量中</li>
+<li>特征提取：通过对选择的特征进行转换形成新的突出特征</li>
+<li>聚类：基于某种距离函数进行相似度度量，获取簇</li>
+<li>聚类结果评估：分析聚类结果，如<code>距离误差和(SSE)</code>等</li>
+</ol>
+<h2 id="Q4、常见的聚类算法有哪些"><a href="#Q4、常见的聚类算法有哪些" class="headerlink" title="Q4、常见的聚类算法有哪些"></a>Q4、常见的聚类算法有哪些</h2><ul>
+<li>分级聚类（书中提到的，但实际上工程中用到的似乎不是很多，知道我没怎么遇到）</li>
+<li>K-均值聚类</li>
+<li>基于高斯混合模型(GMM)的期望最大化（EM）聚类</li>
+</ul>
+<p>———————–施工分界线</p>
+<h2 id="Q5、K-means-聚类算法的流程和实现-以及优化"><a href="#Q5、K-means-聚类算法的流程和实现-以及优化" class="headerlink" title="Q5、K-means 聚类算法的流程和实现 以及优化"></a>Q5、K-means 聚类算法的流程和实现 以及优化</h2><h2 id="Q6、GMMS-聚类算法的流程和实现"><a href="#Q6、GMMS-聚类算法的流程和实现" class="headerlink" title="Q6、GMMS 聚类算法的流程和实现"></a>Q6、GMMS 聚类算法的流程和实现</h2><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104355127">https://zhuanlan.zhihu.com/p/104355127</a></p>
+
                 
               </div>
             
@@ -292,6 +319,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="category-chain-item">读书笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%9B%86%E4%BD%93%E6%99%BA%E6%85%A7%E7%BC%96%E7%A8%8B/" class="print-no-link">#集体智慧编程</a>
+      
+    </div>
   
 </div>
 
